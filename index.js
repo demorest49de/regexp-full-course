@@ -42,8 +42,22 @@
 // console.log(' arr: ', arr);
 
 
-const regexp = /\s*,\s+/;
-const str =  ` 0, 1,   2,3,     4, 5,   6,      7,  8,9`;
+// const regexp = /\d{6}/;
+// const str =  `... 234567 ......`;
+//
+// const arr = str.search(regexp)
+// console.log(' arr: ', arr);
+
+// const regexp = /\d{7}/;
+// const str =  `... 234567 ......`;
+//
+// const arr = str.search(regexp)
+// console.log(' arr: ', arr);
+
+
+const regexp = /\s*,\s*/;
+const str =  `0 , 1,   2 , 3 ,     4 , 5 ,   6 ,      7 ,  8 , 9 `;
+
 const arr = str.split(regexp)
 console.log(' arr: ', arr);
 
@@ -69,7 +83,7 @@ console.log(' arr: ', arr);
 // *? - возьмет 0
 // +?
 
-//* или + ====> * - сработает даже если вхождений 0, а + если
+//* или + ====> * - сработает даже если вхождений 0, а + обязательно должно быть вхождение
 
 
 
