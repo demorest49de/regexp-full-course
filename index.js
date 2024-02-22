@@ -66,24 +66,25 @@ const pics = picsString.split(/,\s/);
 // console.log(' pics: ', pics.toSorted());
 
 // [ '2016.img1', '2016.img2', '2016.img6', '2016.img15', '2016.img17', '2016.img18' ]
+
+// const sorted = pics.sort((a, b) => {
+//   console.log(' a.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', a.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
+//   console.log(' b.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', b.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
+//   return a.match(/\d+/g).reduce((a, b) => (+a) + (+b)) - b.match(/\d+/g).reduce((a, b) => (+a) + (+b));
+// });
+
 function sortPhotos(pics) {
-  
-  // const sorted = pics.sort((a, b) => {
-  //   console.log(' a.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', a.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
-  //   console.log(' b.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', b.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
-  //   return a.match(/\d+/g).reduce((a, b) => (+a) + (+b)) - b.match(/\d+/g).reduce((a, b) => (+a) + (+b));
-  // });
-  
   const sorted = [...pics].sort();
-  console.log(' sorted: ', sorted);
-  console.log(' pics: ', pics);
-  
-  
-  // const match = sorted.join(', ').match(/\d{4}/g)
-  // const set = new Set(match)
-  // const yearsSorted = [...set].sort();
-  // console.log(' yearsSorted: ', yearsSorted);
-  const taken = sorted.slice(-5);
+  const match = sorted.join(', ').match(/\d{4}/g);
+  const set = new Set(match);
+  const years = [...set].sort();
+  const flatedArray = years.flatMap(y => {
+    const byYear = sorted.filter(x => x.includes(y)).sort((a, b) => {
+      return a.match(/\d+$/)[0] - b.match(/\d+$/)[0];
+    });
+    return byYear;
+  });
+  const taken = flatedArray.slice(-5);
   const last = taken[taken.length - 1];
   const num = +(last[last.length - 1]) + 1;
   const concated = last.replace(/.?$/, '').concat(num);
