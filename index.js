@@ -61,17 +61,12 @@
 // const regexp = /(\[(\!?\w*\s*)+\])|(\!?\w+)/gi;
 // const str =  ''
 
-const picsString = '2013.img10, 2012.img18, 2008.img16, 2014.img18, 2014.img5, 2011.img20, 2016.img2, 2010.img1, 2016.img1, 2016.img6, 2010.img16, 2011.img18, 2014.img17, 2015.img19, 2015.img1, 2014.img15, 2012.img5, 2011.img9, 2009.img15, 2013.img19, 2011.img4, 2013.img1, 2009.img6, 2015.img11, 2014.img12, 2016.img17, 2008.img5, 2013.img20, 2016.img15, 2015.img2, 2008.img19, 2013.img7, 2012.img9, 2014.img7, 2010.img4, 2009.img16, 2015.img8';
+const picsString = '2012.img20, 2011.img12, 2015.img15, 2011.img16, 2011.img11, 2016.img14, 2016.img12, 2010.img19, 2016.img19, 2012.img16, 2015.img10, 2010.img10, 2013.img6, 2010.img5, 2013.img19, 2013.img3, 2010.img15, 2010.img18, 2009.img5, 2015.img13, 2015.img5, 2016.img11, 2012.img10, 2014.img7, 2008.img17, 2012.img2, 2015.img7';
 const pics = picsString.split(/,\s/);
-// console.log(' pics: ', pics.toSorted());
 
-// [ '2016.img1', '2016.img2', '2016.img6', '2016.img15', '2016.img17', '2016.img18' ]
-
-// const sorted = pics.sort((a, b) => {
-//   console.log(' a.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', a.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
-//   console.log(' b.match(/\d+/g).reduce((a, b) => (+a) + (+b)): ', b.match(/\d+/g).reduce((a, b) => (+a) + (+b)));
-//   return a.match(/\d+/g).reduce((a, b) => (+a) + (+b)) - b.match(/\d+/g).reduce((a, b) => (+a) + (+b));
-// });
+// It should work for random inputs too: expected
+// [ '2015.img15', '2016.img11', '2016.img12', '2016.img14', '2016.img19', '2016.img110' ]
+// to deeply equal [ '2015.img15', '2016.img11', '2016.img12', '2016.img14', '2016.img19', '2016.img20' ]
 
 function sortPhotos(pics) {
   const sorted = [...pics].sort();
@@ -86,8 +81,8 @@ function sortPhotos(pics) {
   });
   const taken = flatedArray.slice(-5);
   const last = taken[taken.length - 1];
-  const num = +(last[last.length - 1]) + 1;
-  const concated = last.replace(/.?$/, '').concat(num);
+  const num = +(last.match(/\d+$/)[0]) + 1;
+  const concated = last.replace(/\d+$/, '').concat(num);
   return [...taken, concated];
 };
 
