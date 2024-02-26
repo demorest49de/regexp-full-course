@@ -1,5 +1,5 @@
 // 1 отличие i++ & ++i
-
+//
 // let i = 1;
 //
 // console.log(' i = 1: ', i);
@@ -15,8 +15,38 @@
 // for (let i = 1; i < 3; ++i) {
 //   console.log(i);
 // }
+//
+// let x = 0;
+// x  = ++x;
+// console.log(' x++: ', x);
+// // console.log(' x: ', ++x);
+// console.log(' x: ', x);
+//
+// доккер нужен для контейнеризации приложений и создает свое окружение
 
+// чистая функция - Функция должна удовлетворять двум условиям, чтобы считаться «чистой»:
+//
+// — Каждый раз функция возвращает одинаковый результат, когда она вызывается с тем же набором аргументов
+//
+// const add = (x, y) => x + y;
+// add(2, 4); // 6
 
+// области видимимости var let const
+
+// замыкания контекст вызова функции
+// контекст стрел ф опр в мом опр-ния
+// контекст не стрел ф опр в мом ее вызова
+
+console.log(' typeof (Object): ', typeof (new Object()));  // ==>  typeof (Object):  object
+console.log(' typeof (new Date()): ', typeof (new Date()));  // ==> sobes.js:41 typeof (new Date()):  object
+console.log(' (typeof (null)): ',  (typeof (null)));  // ==> sobes.js:42 (typeof (null)):  string
+console.log(' (typeof (1n)): ', (typeof (1n)));  // ==> sobes.js:43 (typeof (1n)):  string
+console.log(' (typeof (new String())): ', (typeof (new String())));  // ==> sobes.js:44 (typeof (new String())):  string
+console.log(' (typeof (new Function())): ', (typeof (new Function()))); // ==>  (typeof (new Function())):  string
+console.log(' (typeof (NaN)): ', (typeof (NaN))); // ==> sobes.js:46 (typeof (NaN)):  string
+console.log(' typeof ([]): ', typeof ([])); // ==> sobes.js:47 typeof ([]):  object
+console.log(' typeof ({}): ', typeof ({})); // ==> sobes.js:48 typeof ({}):  object
+console.log(' typeof (1): ', typeof (1)); // ==> sobes.js:49 typeof (1):  number
 
 // let x = 0
 //
@@ -85,11 +115,7 @@
 // obj.x()
 // obj.y()
 
-// контекст стрел ф опр в мом опр-ния
-// контекст не стрел ф опр в мом ее вызова
 
-// если  у нас есть объек вложен в друг функцию,  стрел функция получит ее контекст
-// контекст вызова гуглить
 
 
 // try {
