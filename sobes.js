@@ -39,7 +39,7 @@
 
 console.log(' typeof (Object): ', typeof (new Object()));  // ==>  typeof (Object):  object
 console.log(' typeof (new Date()): ', typeof (new Date()));  // ==> sobes.js:41 typeof (new Date()):  object
-console.log(' (typeof (null)): ',  (typeof (null)));  // ==> sobes.js:42 (typeof (null)):  string
+console.log(' (typeof (null)): ', (typeof (null)));  // ==> sobes.js:42 (typeof (null)):  string
 console.log(' (typeof (1n)): ', (typeof (1n)));  // ==> sobes.js:43 (typeof (1n)):  bigint
 console.log(' (typeof (new String())): ', (typeof (new String())));  // ==> sobes.js:44 (typeof (new String())):  object
 console.log(' (typeof (new Function())): ', (typeof (new Function())));  // ==> sobes.js:45 (typeof (new Function())):  function
@@ -52,6 +52,55 @@ console.log(' typeof (1): ', typeof (1));  // ==> sobes.js:49 typeof (1):  numbe
 console.log(' typeof (\'\'): ', typeof (''));  // ==> string
 console.log(' typeof (true): ', typeof (true));  // ==> boolean
 
+//Type	typeof return value	Object wrapper
+// Null	"object"	N/A
+// Undefined	"undefined"	N/A
+// Boolean	"boolean"	Boolean
+// Number	"number"	Number
+// BigInt	"bigint"	BigInt
+// String	"string"	String
+// Symbol	"symbol"
+
+//Все типы, кроме Object, определяют неизменяемые значения,
+// представленные непосредственно на самом низком уровне языка.
+// Мы называем значения этих типов примитивными значениями.
+// Все примитивные типы, кроме null, можно проверить с помощью
+// оператора typeof. typeof null возвращает «объект»,
+// поэтому для проверки на ноль нужно использовать === null.
+
+// Numbers
+// typeof 37 === 'number';
+// typeof 3.14 === 'number';
+// typeof(42) === 'number';
+// typeof Math.LN2 === 'number';
+// typeof Infinity === 'number';
+// typeof NaN === 'number'; // Despite being "Not-A-Number"
+// typeof Number(1) === 'number'; // but never use this form!
+//
+//
+// // Objects
+// typeof {a:1} === 'object';
+//
+// // use Array.isArray or Object.prototype.toString.call
+// // to differentiate regular objects from arrays
+// typeof [1, 2, 4] === 'object';
+//
+// typeof new Date() === 'object';
+//
+//
+// // The following is confusing. Don't use!
+// typeof new Boolean(true) === 'object';
+// typeof new Number(1) === 'object';
+// typeof new String("abc") === 'object';
+//
+//
+// // Functions
+// typeof function(){} === 'function';
+// typeof class C {} === 'function';
+// typeof Math.sin === 'function';
+
+
+// Замыкания примеры
 // let x = 0
 //
 // function count() {
@@ -71,12 +120,6 @@ console.log(' typeof (true): ', typeof (true));  // ==> boolean
 // count().inc()
 // count().getX()
 // count().getY()
-
-// var a = 0
-//
-// const x = ()=> {
-//     console.log(this.a)
-// }
 
 // для стрел функц
 //  отрабатывает всегда первый байнд
@@ -118,8 +161,6 @@ console.log(' typeof (true): ', typeof (true));  // ==> boolean
 //
 // obj.x()
 // obj.y()
-
-
 
 
 // try {
@@ -178,6 +219,3 @@ console.log(' typeof (true): ', typeof (true));  // ==> boolean
 // Array.prototype.hello = console.log('hello')
 // console.log(x,'hello')
 // console.log(x.hello)
-
-
-//задача про 8 шаров и 9 шаров
