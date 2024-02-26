@@ -40,13 +40,17 @@
 console.log(' typeof (Object): ', typeof (new Object()));  // ==>  typeof (Object):  object
 console.log(' typeof (new Date()): ', typeof (new Date()));  // ==> sobes.js:41 typeof (new Date()):  object
 console.log(' (typeof (null)): ',  (typeof (null)));  // ==> sobes.js:42 (typeof (null)):  string
-console.log(' (typeof (1n)): ', (typeof (1n)));  // ==> sobes.js:43 (typeof (1n)):  string
-console.log(' (typeof (new String())): ', (typeof (new String())));  // ==> sobes.js:44 (typeof (new String())):  string
-console.log(' (typeof (new Function())): ', (typeof (new Function()))); // ==>  (typeof (new Function())):  string
-console.log(' (typeof (NaN)): ', (typeof (NaN))); // ==> sobes.js:46 (typeof (NaN)):  string
-console.log(' typeof ([]): ', typeof ([])); // ==> sobes.js:47 typeof ([]):  object
-console.log(' typeof ({}): ', typeof ({})); // ==> sobes.js:48 typeof ({}):  object
-console.log(' typeof (1): ', typeof (1)); // ==> sobes.js:49 typeof (1):  number
+console.log(' (typeof (1n)): ', (typeof (1n)));  // ==> sobes.js:43 (typeof (1n)):  bigint
+console.log(' (typeof (new String())): ', (typeof (new String())));  // ==> sobes.js:44 (typeof (new String())):  object
+console.log(' (typeof (new Function())): ', (typeof (new Function())));  // ==> sobes.js:45 (typeof (new Function())):  function
+console.log(' (typeof (NaN)): ', (typeof (NaN)));  // ==> sobes.js:46 (typeof (NaN)):  number
+console.log(' (typeof (undefined)): ', (typeof (undefined)));  // ==> sobes.js:46 (typeof (NaN)):  number
+console.log(' (typeof (null)): ', (typeof (null)));  // ==> sobes.js:46 (typeof (NaN)):  number
+console.log(' typeof ([]): ', typeof ([]));  // ==> sobes.js:47 typeof ([]):  object
+console.log(' typeof ({}): ', typeof ({}));  // ==> sobes.js:48 typeof ({}):  object
+console.log(' typeof (1): ', typeof (1));  // ==> sobes.js:49 typeof (1):  number
+console.log(' typeof (\'\'): ', typeof (''));  // ==> string
+console.log(' typeof (true): ', typeof (true));  // ==> boolean
 
 // let x = 0
 //
